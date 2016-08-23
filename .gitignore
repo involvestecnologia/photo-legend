@@ -7,3 +7,13 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+.classpath
+.project
+.settings/
+**/vendor
+node_modules
+ehcache_auto_created_**
+.idea/
+.externalToolBuilders/
+photo-legend.iml
+
