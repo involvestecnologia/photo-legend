@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import br.com.involves.agilepromoter.photolegend.exception.PhotoLegendException;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 
 public class WriteToImage {
