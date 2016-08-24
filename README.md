@@ -1,8 +1,19 @@
 # photo-legend
-Projeto destinado a adicionar uma legenda
+Projeto destinado a adicionar uma legenda na foto.
 
-# maven
+# Maven
+
+```xml
+<dependency>
+     <groupId>br.com.involves.agilepromoter</groupId>
+     <artifactId>photo-legend</artifactId>
+     <version>${photo-legend.version}</version>
+ </dependency>
+ ```
 
 
+# Utilizar
 
-# utilizar
+```java
+PhotoLegend.getInstance().addLegend("[LABEL]", [OBJECT]);
+```
