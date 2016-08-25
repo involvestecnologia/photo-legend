@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.legendafoto.test;
+package br.com.involves.legendafoto.test;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,8 +11,8 @@ import java.nio.file.Paths;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.involves.agilepromoter.photolegend.PhotoLegend;
-import br.com.involves.agilepromoter.photolegend.exception.PhotoLegendException;
+import br.com.involves.photolegend.PhotoLegend;
+import br.com.involves.photolegend.exception.PhotoLegendException;
 
 /**
  * 

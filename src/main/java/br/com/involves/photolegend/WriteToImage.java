@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.photolegend;
+package br.com.involves.photolegend;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import br.com.involves.agilepromoter.photolegend.exception.PhotoLegendException;
+import br.com.involves.photolegend.exception.PhotoLegendException;
 import org.apache.commons.lang.StringUtils;
 
 

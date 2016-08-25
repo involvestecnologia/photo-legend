@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.photolegend;
+package br.com.involves.photolegend;
 
 import java.awt.Color;
 import java.awt.Font;

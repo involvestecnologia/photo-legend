@@ -1,8 +1,8 @@
-package br.com.involves.agilepromoter.photolegend;
+package br.com.involves.photolegend;
 
 import java.io.InputStream;
 
-import br.com.involves.agilepromoter.photolegend.exception.PhotoLegendException;
+import br.com.involves.photolegend.exception.PhotoLegendException;
 
 public class PhotoLegend {
 
@@ -10,6 +10,9 @@ public class PhotoLegend {
 	
 	public static PhotoLegend getInstance() {
 		return PHOTO_LEGEND;
+	}
+
+	private PhotoLegend(){
 	}
 
 	public byte[] addLegend(String label, InputStream imageInit) throws PhotoLegendException {

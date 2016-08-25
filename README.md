@@ -5,7 +5,7 @@ Projeto destinado a adicionar uma legenda na foto.
 
 ```xml
 <dependency>
-     <groupId>br.com.involves.agilepromoter</groupId>
+     <groupId>br.com.involves</groupId>
      <artifactId>photo-legend</artifactId>
      <version>${photo-legend.version}</version>
  </dependency>

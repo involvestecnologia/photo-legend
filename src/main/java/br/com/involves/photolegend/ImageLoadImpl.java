@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.photolegend;
+package br.com.involves.photolegend;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import br.com.involves.agilepromoter.photolegend.exception.PhotoLegendException;
+import br.com.involves.photolegend.exception.PhotoLegendException;
 
 /**
  * 

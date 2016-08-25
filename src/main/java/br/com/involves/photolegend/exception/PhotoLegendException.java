@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.photolegend.exception;
+package br.com.involves.photolegend.exception;
 
 public class PhotoLegendException extends Exception {
 

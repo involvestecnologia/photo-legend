@@ -1,4 +1,4 @@
-package br.com.involves.agilepromoter.photolegend;
+package br.com.involves.photolegend;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
