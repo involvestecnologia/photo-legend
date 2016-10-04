@@ -20,19 +20,23 @@ public class Teste {
 			assert (imagemDestino != null && !imagemDestino.isEmpty()) : "Caminho da imagem destino deve ser fornecida";
 
 			BufferedImage image = ImageIO.read(imagemOriginal);
+			
+			BufferedImage imageFormatRgb = new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
+			imageFormatRgb.createGraphics().drawImage(image, 0, 0, Color.WHITE, null);
+			  
 
 			/*BufferedImage thumbnail = Thumbnails.of(image)
 					.size(image.getWidth(), image.getHeight())
 					.asBufferedImage();*/
 
-			Graphics2D gO = image.createGraphics();
+			Graphics2D gO = imageFormatRgb.createGraphics();
 			gO.setFont(new Font( "SansSerif", Font.BOLD, 20 ));
 			gO.setColor(Color.YELLOW);
-			gO.drawString(label, 20, image.getHeight() - 20);
+			gO.drawString(label, 20, imageFormatRgb.getHeight() - 20);
 		    
 			
 			File file = new File(imagemDestino);
-			ImageIO.write(image, "JPG", file);
+			ImageIO.write(imageFormatRgb, "JPG", file);
 			return file;
 		} catch (IOException e) {
 			System.out
@@ -48,9 +52,9 @@ public class Teste {
 		Teste t = new Teste();
 		
 		t.addThumbnail(
-				new File("/home/marcelo/Imagens/teste/WhatsApp-Image-20160714.jpeg"), 
-				"sdmfbsdjhfb sdjkfs fsd",
-				"/home/marcelo/Imagens/teste/criaro.jpg");
+				new File("/home/wesleyramos/Downloads/caixa.gif"), 
+				"carimbo foto",
+				"/home/wesleyramos/Downloads/gif_teste.jpg");
 
 		//http://www.matera.com/br/2015/03/04/marca-dagua-com-java-e-thumbnailator/
 		//http://www.guj.com.br/t/escrevendo-texto-em-imagens/226341/14

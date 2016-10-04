@@ -11,11 +11,11 @@ public interface ImageLoad {
 	BufferedImage getImage();
 
 	int getHeight();
-
+    
+	int getWidth();
+	
 	Graphics2D createGraphics();
 
 	void reader(InputStream imageInit) throws Exception;
-	
-	
-	
+		
 }
