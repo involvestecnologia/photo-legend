@@ -14,18 +14,18 @@ import org.apache.commons.lang.StringUtils;
 
 public class WriteToImage {
 
-	private static final Color COLOR = Color.YELLOW;
-	private static final int SIZE = 20;
-	private static final String FONT_NAME = "SansSerif";
-	private static final Font FONT = new Font( FONT_NAME, Font.BOLD, SIZE );
+	private static final Color 	COLOR 		= Color.YELLOW;
+	private static final int 	SIZE 		= 20;
+	private static final String FONT_NAME 	= "SansSerif";
+	private static final Font 	FONT 		= new Font( FONT_NAME, Font.BOLD, SIZE );
 	
-	private ImageLoad imageLoad;
-	private String label;
-	private Graphics2D graphics2d;
+	private ImageLoad 	imageLoad;
+	private String 		label;
+	private Graphics2D 	graphics2d;
 
 	public WriteToImage(ImageLoad imageLoad, String label) throws PhotoLegendException {
-		this.imageLoad = imageLoad;
-		this.label = label;
+		this.imageLoad 	= imageLoad;
+		this.label 		= label;
 		writeToImage();
 	}
 
@@ -42,7 +42,7 @@ public class WriteToImage {
 
 	private void valid() throws PhotoLegendException {
 		if( StringUtils.isEmpty(label) ){
-			throw new PhotoLegendException("Label n√£o pode ser nulo.");
+			throw new PhotoLegendException("Label n„o pode ser nulo.");
 		}
 	}
 
@@ -65,7 +65,7 @@ public class WriteToImage {
 			ImageIO.write(imageLoad.getImage(), "JPG", byteReturn);
 			return byteReturn.toByteArray();
 		} catch (IOException e) {
-			throw new PhotoLegendException("N√£o foi poss√≠vel escrever na imagem.");
+			throw new PhotoLegendException("N„o foi possÌ≠vel escrever na imagem.");
 		}
 		
 	}

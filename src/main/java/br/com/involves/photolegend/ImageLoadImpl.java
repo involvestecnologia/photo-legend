@@ -1,5 +1,6 @@
 package br.com.involves.photolegend;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -32,20 +33,20 @@ public class ImageLoadImpl implements ImageLoad {
 	/**
 	 * 
 	 * Valida a integridade da imagem, se ela foi lida corretamente.<br>
-	 * Se o {@link BufferedImage} for nulo ï¿½ porque o objeto recebido nï¿½o era um formato vï¿½lido para imagem.
+	 * Se o {@link BufferedImage} for nulo é porque o objeto recebido não era um formato válido para imagem.
 	 * 
 	 * @throws PhotoLegendException
 	 */
 	private void validateIntegrity() throws PhotoLegendException {
 
 		if( image == null ){
-			throw new PhotoLegendException("Formato invÃ¡lido.");
+			throw new PhotoLegendException("Formato inválido.");
 		}
 		
 	}
 
 	/**
-	 * Valida se o objeto ï¿½ null.
+	 * Valida se o objeto é null.
 	 * 
 	 * @param imageInit
 	 * @throws PhotoLegendException
@@ -53,7 +54,7 @@ public class ImageLoadImpl implements ImageLoad {
 	private void valid(Object imageInit) throws PhotoLegendException {
 		
 		if( imageInit == null ){
-			throw new PhotoLegendException("Imagem nÃ£o pode ser nula.");
+			throw new PhotoLegendException("Imagem não pode ser nula.");
 		}
 		
 	}
@@ -64,10 +65,15 @@ public class ImageLoadImpl implements ImageLoad {
 		valid(imageInit);
 		
 		try(ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageInit)){
-			image = ImageIO.read(byteArrayInputStream);
+			
+			image 							= ImageIO.read(byteArrayInputStream);
+			BufferedImage imageFormatRgb 	= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
+			imageFormatRgb.createGraphics().drawImage(image, 0, 0, Color.WHITE, null);
+			image                           = imageFormatRgb;  
+			
 		} catch (IOException e) {
 			e.printStackTrace();
-			throw new PhotoLegendException("NÃ£o foi possÃ­vel ler a imagem.");
+			throw new PhotoLegendException("Não foi possí­vel ler a imagem.");
 		}
 	}
 	
@@ -77,9 +83,14 @@ public class ImageLoadImpl implements ImageLoad {
 		valid(imageInit);
 		
 		try {
-			image = ImageIO.read(imageInit);
+			
+			image 							= ImageIO.read(imageInit);
+			BufferedImage imageFormatRgb 	= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
+			imageFormatRgb.createGraphics().drawImage(image, 0, 0, Color.WHITE, null);
+			image                           = imageFormatRgb;
+			
 		} catch (IOException e) {
-			throw new PhotoLegendException("NÃ£o foi possÃ­vel ler a imagem.");
+			throw new PhotoLegendException("Não foi possí­vel ler a imagem.");
 		}
 	}
 
@@ -91,6 +102,11 @@ public class ImageLoadImpl implements ImageLoad {
 	@Override
 	public int getHeight() {
 		return image.getHeight();
+	}
+	
+	@Override
+	public int getWidth() {
+		return image.getWidth();
 	}
 	
 	@Override
