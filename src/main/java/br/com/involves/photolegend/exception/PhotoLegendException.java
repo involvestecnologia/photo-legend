@@ -9,6 +9,10 @@ public class PhotoLegendException extends Exception {
 		super(msg);
 	}
 
+	public PhotoLegendException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+	
 	private static final long serialVersionUID = 5951104185441777388L;
 
 }

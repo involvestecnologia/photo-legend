@@ -9,6 +9,9 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.involves.photolegend.exception.PhotoLegendException;
 
 /**
@@ -18,16 +21,16 @@ import br.com.involves.photolegend.exception.PhotoLegendException;
  */
 public class ImageLoadImpl implements ImageLoad {
 
+	static Logger LOGGER = LoggerFactory.getLogger(ImageLoadImpl.class);
+	
 	private BufferedImage image;
 	
 	public ImageLoadImpl(InputStream imageInit) throws PhotoLegendException {
 		reader(imageInit);
-		validateIntegrity();
 	}
 
 	public ImageLoadImpl(byte[] imageInit) throws PhotoLegendException {
 		reader(imageInit);
-		validateIntegrity();
 	}
 
 	/**
@@ -60,37 +63,42 @@ public class ImageLoadImpl implements ImageLoad {
 	}
 
 	@Override
-	public void reader(byte[] imageInit) throws PhotoLegendException{
+	public void reader(byte[] imageInit) throws PhotoLegendException {
 		
 		valid(imageInit);
 		
 		try(ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageInit)){
 			
 			image 							= ImageIO.read(byteArrayInputStream);
+			
+			validateIntegrity();
+			
 			BufferedImage imageFormatRgb 	= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
 			imageFormatRgb.createGraphics().drawImage(image, 0, 0, Color.WHITE, null);
 			image                           = imageFormatRgb;  
 			
 		} catch (IOException e) {
-			e.printStackTrace();
-			throw new PhotoLegendException("Não foi possí­vel ler a imagem.");
+			throw new PhotoLegendException("Não foi possí­vel ler a imagem.", e);
 		}
 	}
 	
 	@Override
-	public void reader(InputStream imageInit) throws PhotoLegendException{
+	public void reader(InputStream imageInit) throws PhotoLegendException {
 		
 		valid(imageInit);
 		
 		try {
 			
 			image 							= ImageIO.read(imageInit);
+			
+			validateIntegrity();
+			
 			BufferedImage imageFormatRgb 	= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
 			imageFormatRgb.createGraphics().drawImage(image, 0, 0, Color.WHITE, null);
 			image                           = imageFormatRgb;
 			
 		} catch (IOException e) {
-			throw new PhotoLegendException("Não foi possí­vel ler a imagem.");
+			throw new PhotoLegendException("Não foi possí­vel ler a imagem.", e);
 		}
 	}
 

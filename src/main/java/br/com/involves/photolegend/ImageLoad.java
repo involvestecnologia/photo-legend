@@ -4,9 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 
+import br.com.involves.photolegend.exception.PhotoLegendException;
+
 public interface ImageLoad {
 
-	void reader(byte[] imageInit) throws Exception;
+	void reader(byte[] imageInit) throws PhotoLegendException;
 
 	BufferedImage getImage();
 
@@ -16,6 +18,6 @@ public interface ImageLoad {
 	
 	Graphics2D createGraphics();
 
-	void reader(InputStream imageInit) throws Exception;
+	void reader(InputStream imageInit) throws PhotoLegendException;
 		
 }

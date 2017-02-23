@@ -65,7 +65,7 @@ public class WriteToImage {
 			ImageIO.write(imageLoad.getImage(), "JPG", byteReturn);
 			return byteReturn.toByteArray();
 		} catch (IOException e) {
-			throw new PhotoLegendException("Não foi possí­vel escrever na imagem.");
+			throw new PhotoLegendException("Não foi possí­vel escrever na imagem.", e);
 		}
 		
 	}

@@ -93,7 +93,7 @@ public class LegendTest {
 			PhotoLegend.getInstance().addLegend("Texto", is);
 			Assert.fail();
 		} catch (PhotoLegendException e) {
-			Assert.assertEquals(e.getMessage(), "Imagem n√£o pode ser nula.");
+			Assert.assertEquals(e.getMessage(), "Imagem n„o pode ser nula.");
 		}
 		
 	}
@@ -110,7 +110,7 @@ public class LegendTest {
 			PhotoLegend.getInstance().addLegend(null, is);
 			Assert.fail();
 		} catch (PhotoLegendException e) {
-			Assert.assertEquals(e.getMessage(), "Label n√£o pode ser nulo.");
+			Assert.assertEquals(e.getMessage(), "Label n„o pode ser nulo.");
 		}
 		
 	}
@@ -171,7 +171,7 @@ public class LegendTest {
 			Assert.fail();
 		} catch (PhotoLegendException e) {
 			e.printStackTrace();
-			Assert.assertEquals(e.getMessage(), "Formato inv√°lido.");
+			Assert.assertEquals(e.getMessage(), "Formato inv·lido.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail();
